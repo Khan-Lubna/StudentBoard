@@ -8,6 +8,7 @@ import { signOut } from "firebase/auth";
 function StudentsPage() {
   const navigate = useNavigate();
   const [ students, setStudents ] = useState([]);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [ showModal, setShowModal ] = useState(false);
   const [ currentEditId, setCurrentEditId ] = useState(null);
   const [ viewData, setViewData ] = useState(null);
@@ -148,6 +149,12 @@ function StudentsPage() {
 
   return (
     <>
+    {/* Navbar for smaller screen */}
+    <div className="navbar">
+      <button className="menu-btn" onClick={() => setSidebarOpen(!sidebarOpen)}><i class="fa-solid fa-bars"></i></button>
+      <h2 className="title">Student Board</h2>
+      <button className="logout-btn" onClick={handleLogout}>Logout</button>
+    </div>
     <div class="container">
       <div class="sidebar">
        <h1>Dashboard</h1>
