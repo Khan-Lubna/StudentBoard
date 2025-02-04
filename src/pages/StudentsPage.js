@@ -141,7 +141,7 @@ function StudentsPage() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (!user) {
-        navigate("/"); // Redirect to login if not authenticated
+        navigate("/");
       }
     });
     return () => unsubscribe();
