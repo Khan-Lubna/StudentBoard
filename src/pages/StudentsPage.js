@@ -151,7 +151,7 @@ function StudentsPage() {
     <>
     {/* Navbar for smaller screen */}
     <div className="navbar">
-      <button className="menu-btn" onClick={() => setSidebarOpen(!sidebarOpen)}><i class="fa-solid fa-bars"></i></button>
+      <button className="menu-btn" onClick={() => setSidebarOpen(!sidebarOpen)}></button>
       <h2 className="title">Student Board</h2>
       <button className="logout-btn" onClick={handleLogout}>Logout</button>
     </div>
@@ -209,8 +209,8 @@ function StudentsPage() {
            }}
            >
             {Object.keys(formData).map((field) => (
-              <div key={field}>
-                <label>{field}</label>
+              <div key={field} className="form-group">
+                <label>{field.replace(/([A-Z])/g, "$1").trim()}</label>
                 <input
                   type="text"
                   value={formData[field]}
@@ -219,8 +219,8 @@ function StudentsPage() {
               </div>
             ))}
               <div className="modal-buttons">
-                <button type="button" onClick={() => setShowModal(false)} className="cancel">Cancel</button>
-                <button type="submit" className="save">{currentEditId ? "Save Changes" : "Add Student"}</button>
+                <button type="button" onClick={() => setShowModal(false)} className="cancel-btn">Cancel</button>
+                <button type="submit" className="submit-btn">{currentEditId ? "Save Changes" : "Add Student"}</button>
               </div> 
               </form>
              </div>

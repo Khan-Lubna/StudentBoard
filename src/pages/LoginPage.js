@@ -56,6 +56,11 @@ function LoginPage() {
           Login
         </button>
       </form>
+      <div className="credentials">
+        <h3>Test Credentials:</h3>
+        <p>Email:admin@123.com</p>
+        <p>Password:admin@123</p>
+      </div>
     </div>
   );
 }
