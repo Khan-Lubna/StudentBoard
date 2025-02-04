@@ -155,6 +155,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
   }
   
   .modal {
@@ -196,7 +197,7 @@ body {
   .form-label {
     font-weight: 600;
     color: #333;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
 
   .form-input {
@@ -246,7 +247,7 @@ body {
   }
 
   .cancel-btn,
-  .save-btn {
+  .submit-btn {
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
@@ -259,7 +260,7 @@ body {
     color: white;
   }
   
-  .save-btn {
+  .submit-btn {
     background: #007bff;
     color: white;
   }
@@ -268,7 +269,7 @@ body {
     background: darkgray;
   }
   
-  .save-btn:hover {
+  .submit-btn:hover {
     background: #0056b3;
   }
   
@@ -365,6 +366,17 @@ body {
 
     .modal {
         width: 80%;
+        padding: 15px;
+    }
+
+    .modal-buttons {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cancel-btn, .submit-btn {
+      width: 100%;
     }
 }
 
@@ -392,11 +404,15 @@ body {
     }
 
     .modal {
-        width: 90%;
-        padding: 15px;
+        width: 95%;
+        padding: 10px;
     }
 
     .table th, .table td {
         padding: 5px;
+    }
+
+    .form-group input {
+      padding: 8px; 
     }
 }
