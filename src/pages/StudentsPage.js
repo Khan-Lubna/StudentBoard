@@ -200,27 +200,29 @@ function StudentsPage() {
        </table>
 
        { showModal && (
-        <div className="modal-overlay" >
-          <div className="modal">
-           <h2>{currentEditId ? "Edit Student" : "Add Student"}</h2>
+        <div className="modal-overlay fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50" >
+          <div className="modal bg-white w-full max-w-lg md:max-w-2xl lg:max-w-3xl rounded-lg shadow-lg p-6">
+           <h2 className="text-center font-bold text-lg mb-6">{currentEditId ? "Edit Student" : "Add Student"}</h2>
            <form onSubmit={(e) => {
             e.preventDefault();
             handleAddStudent();
            }}
+           className="grid grid-cols-1 md:grid-cols-2 gap-4"
            >
             {Object.keys(formData).map((field) => (
-              <div key={field} className="form-group">
-                <label>{field.replace(/([A-Z])/g, "$1").trim()}</label>
+              <div key={field} className="form-group flex flex-col">
+                <label className="text-gray-700 font-semibold capitalize mb-1">{field.replace(/([A-Z])/g, "$1").trim()}</label>
                 <input
                   type="text"
+                  className="form-input border border-gray-300 p-2 md:p-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
                   value={formData[field]}
                   onChange={(e) => setFormData({ ...formData, [field]: e.target.value })}
                 />
               </div>
             ))}
-              <div className="modal-buttons">
-                <button type="button" onClick={() => setShowModal(false)} className="cancel-btn">Cancel</button>
-                <button type="submit" className="submit-btn">{currentEditId ? "Save Changes" : "Add Student"}</button>
+              <div className="modal-buttons  col-span-1 md:col-span-2 flex flex-col md:flex-row justify-end mt-4 gap-3">
+                <button type="button" onClick={() => setShowModal(false)} className="cancel-btn bg-gray-400 text-white px-4 py-2 rounded-md hover:bg-gray-500 transition w-full md:w-auto">Cancel</button>
+                <button type="submit" className="submit-btn bg-blue-500 text-white px-5 py-2 rounded-md hover:bg-blue-600 transition w-full md:w-auto">{currentEditId ? "Save Changes" : "Add Student"}</button>
               </div> 
               </form>
              </div>
